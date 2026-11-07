@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Playeras y Gorras</title>
+    <meta name="description" content="Playeras y gorras básicas para todos los días en Puebla.">
+    <link rel="stylesheet" href="main.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <div class="promo">
+        Envío gratis desde $800 · Usa <strong>BIENVENIDO10</strong> y obtén 10% de descuento
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Playeras y Gorras</a>
+            <nav class="nav" aria-label="Principal">
+                <a class="nav-hide-sm" href="#playeras">Playeras</a>
+                <a class="nav-hide-sm" href="#gorras">Gorras</a>
+                <a class="nav-hide-sm" href="contacto.html">Contacto</a>
+                <button type="button" class="cart-btn" data-open-cart aria-label="Abrir carrito">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/>
+                    </svg>
+                    <span>Carrito</span>
+                    <span class="cart-count" hidden>0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="intro">
+        <p class="eyebrow">Hecho para el diario</p>
+        <h1>Playeras y gorras.</h1>
+        <p>Básicos sencillos, cómodos y fáciles de combinar. Elige tu talla, agrégalos al carrito y recibe en casa o recoge en tienda.</p>
+        <div class="intro-actions">
+            <a class="btn btn-solid" href="#playeras">Ver productos</a>
+            <a class="btn" href="contacto.html">Cómo llegar</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="catalog" id="playeras">
+            <div class="catalog-head">
+                <h2>Playeras</h2>
+                <span>Tallas CH a XG</span>
+            </div>
+            <div class="products" data-categoria="playeras">
+                <noscript><p>Activa JavaScript para ver los productos y comprar.</p></noscript>
+            </div>
+        </section>
+
+        <section class="catalog" id="gorras">
+            <div class="catalog-head">
+                <h2>Gorras</h2>
+                <span>Ajustables · Unitalla</span>
+            </div>
+            <div class="products" data-categoria="gorras"></div>
+        </section>
+
+        <section class="perks" aria-label="Beneficios">
+            <div>
+                <h3>Envío gratis</h3>
+                <p>En compras desde $800. Si no, cuesta $99.</p>
+            </div>
+            <div>
+                <h3>Recoge en tienda</h3>
+                <p>Sin costo, en Av. 4 Pte. 1919, San Matías, Puebla.</p>
+            </div>
+            <div>
+                <h3>Códigos de descuento</h3>
+                <p>Escribe tu código al pagar y el descuento se aplica al momento.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 Playeras y Gorras · Tienda de demostración</span>
+            <span>Fotos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
+        </div>
+    </footer>
+
+</body>
+</html>

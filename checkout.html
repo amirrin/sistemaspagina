@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagar | Playeras y Gorras</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="main.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="page-checkout">
+
+    <header class="header">
+        <div class="header-inner">
+            <a class="logo" href="index.html">Playeras y Gorras</a>
+            <nav class="nav" aria-label="Principal">
+                <a class="nav-hide-sm" href="index.html">Seguir comprando</a>
+                <button type="button" class="cart-btn" data-open-cart aria-label="Abrir carrito">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/>
+                    </svg>
+                    <span>Carrito</span>
+                    <span class="cart-count" hidden>0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+
+        <!-- Carrito vacío -->
+        <section class="checkout-empty" id="checkout-empty" hidden>
+            <h1>Tu carrito está vacío</h1>
+            <p>Agrega playeras o gorras para continuar con tu compra.</p>
+            <a class="btn btn-solid" href="index.html#playeras">Ver productos</a>
+        </section>
+
+        <!-- Confirmación (la llena app.js) -->
+        <section class="checkout-done" id="checkout-done" hidden></section>
+
+        <!-- Pago -->
+        <div class="checkout" id="checkout" hidden>
+            <h1 class="checkout-title">Finalizar compra</h1>
+
+            <form class="checkout-form" id="checkout-form" novalidate>
+
+                <fieldset class="step">
+                    <legend><span class="step-num">1</span> Datos de contacto</legend>
+                    <div class="field">
+                        <label for="nombre">Nombre completo</label>
+                        <input id="nombre" name="nombre" autocomplete="name" aria-describedby="err-nombre">
+                        <p class="field-error" id="err-nombre"></p>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="email">Correo</label>
+                            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="err-email">
+                            <p class="field-error" id="err-email"></p>
+                        </div>
+                        <div class="field">
+                            <label for="telefono">Teléfono (10 dígitos)</label>
+                            <input id="telefono" name="telefono" type="tel" inputmode="numeric" autocomplete="tel-national" aria-describedby="err-telefono">
+                            <p class="field-error" id="err-telefono"></p>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="step">
+                    <legend><span class="step-num">2</span> Entrega</legend>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="entrega" value="domicilio" checked>
+                            <span class="option-body">
+                                <strong>Envío a domicilio</strong>
+                                <span>3 a 5 días hábiles · $99, gratis desde $800</span>
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="entrega" value="recoger">
+                            <span class="option-body">
+                                <strong>Recoger en tienda</strong>
+                                <span>Al día siguiente · Gratis · San Matías, Puebla</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div id="direccion">
+                        <div class="field">
+                            <label for="calle">Calle y número</label>
+                            <input id="calle" name="calle" autocomplete="street-address" aria-describedby="err-calle">
+                            <p class="field-error" id="err-calle"></p>
+                        </div>
+                        <div class="field-row field-row-3">
+                            <div class="field">
+                                <label for="colonia">Colonia</label>
+                                <input id="colonia" name="colonia" aria-describedby="err-colonia">
+                                <p class="field-error" id="err-colonia"></p>
+                            </div>
+                            <div class="field">
+                                <label for="cp">C.P.</label>
+                                <input id="cp" name="cp" inputmode="numeric" autocomplete="postal-code" aria-describedby="err-cp">
+                                <p class="field-error" id="err-cp"></p>
+                            </div>
+                            <div class="field">
+                                <label for="ciudad">Ciudad</label>
+                                <input id="ciudad" name="ciudad" autocomplete="address-level2" aria-describedby="err-ciudad">
+                                <p class="field-error" id="err-ciudad"></p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="step">
+                    <legend><span class="step-num">3</span> Pago</legend>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="pago" value="tarjeta" checked>
+                            <span class="option-body">
+                                <strong>Tarjeta de crédito o débito</strong>
+                                <span>Visa, Mastercard o American Express</span>
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="pago" value="transferencia">
+                            <span class="option-body">
+                                <strong>Transferencia</strong>
+                                <span>Te mandamos los datos por correo</span>
+                            </span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="pago" value="efectivo">
+                            <span class="option-body">
+                                <strong>Efectivo en tienda</strong>
+                                <span>Solo si recoges en tienda</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div id="datos-tarjeta">
+                        <p class="sim-note">
+                            <strong>Simulación:</strong> no se cobra nada. No escribas una tarjeta real.
+                            Usa <code>4242 4242 4242 4242</code>, cualquier fecha futura y cualquier CVV.
+                            Para probar un rechazo: <code>4000 0000 0000 0002</code>.
+                        </p>
+                        <div class="field">
+                            <label for="titular">Nombre en la tarjeta</label>
+                            <input id="titular" name="titular" autocomplete="off" aria-describedby="err-titular">
+                            <p class="field-error" id="err-titular"></p>
+                        </div>
+                        <div class="field">
+                            <label for="tarjeta">Número de tarjeta</label>
+                            <input id="tarjeta" name="tarjeta" inputmode="numeric" autocomplete="off" placeholder="4242 4242 4242 4242" aria-describedby="err-tarjeta">
+                            <p class="field-error" id="err-tarjeta"></p>
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="vencimiento">Vencimiento</label>
+                                <input id="vencimiento" name="vencimiento" inputmode="numeric" autocomplete="off" placeholder="MM/AA" aria-describedby="err-vencimiento">
+                                <p class="field-error" id="err-vencimiento"></p>
+                            </div>
+                            <div class="field">
+                                <label for="cvv">CVV</label>
+                                <input id="cvv" name="cvv" inputmode="numeric" autocomplete="off" placeholder="123" aria-describedby="err-cvv">
+                                <p class="field-error" id="err-cvv"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="info-box" id="info-transferencia" hidden>
+                        Al confirmar, te enviamos los datos bancarios por correo. Apartamos tu pedido 48 horas.
+                    </p>
+                    <p class="info-box" id="info-efectivo" hidden>
+                        Pagas al recoger tu pedido en tienda.
+                    </p>
+                </fieldset>
+
+                <button type="submit" class="btn btn-solid btn-block btn-pay" id="pay-btn">
+                    <span class="spinner" aria-hidden="true"></span>
+                    <span id="pay-label">Pagar</span>
+                </button>
+                <p class="note center">Tienda de demostración. Ningún pedido es real.</p>
+            </form>
+
+            <aside class="summary" aria-labelledby="summary-title">
+                <div class="summary-head">
+                    <h2 id="summary-title">Resumen</h2>
+                    <span id="sum-count" class="muted"></span>
+                </div>
+
+                <ul class="summary-items" id="summary-items"></ul>
+                <button type="button" class="link-btn" data-open-cart>Editar carrito</button>
+
+                <form class="coupon" id="coupon-form" novalidate>
+                    <label for="cupon">Código de descuento</label>
+                    <div class="coupon-row">
+                        <input id="cupon" name="cupon" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ej. BIENVENIDO10">
+                        <button type="submit" class="btn">Aplicar</button>
+                    </div>
+                    <p class="coupon-status" id="coupon-status" role="status"></p>
+                    <p class="coupon-hint">Prueba: BIENVENIDO10, GORRAS20, PUEBLA50 o ENVIOGRATIS</p>
+                </form>
+
+                <div class="sum-rows">
+                    <div class="sum-row"><span>Subtotal</span><span id="sum-subtotal"></span></div>
+                    <div class="sum-row discount" id="row-descuento" hidden><span>Descuento</span><span id="sum-descuento"></span></div>
+                    <div class="sum-row"><span>Envío</span><span id="sum-envio"></span></div>
+                    <div class="sum-row sum-total"><span>Total</span><strong id="sum-total"></strong></div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>&copy; 2026 Playeras y Gorras · Tienda de demostración</span>
+            <span>Fotos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
+        </div>
+    </footer>
+
+</body>
+</html>
